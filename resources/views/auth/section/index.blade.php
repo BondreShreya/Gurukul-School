@@ -66,8 +66,10 @@
                           {{ $s->section }}
                           </td>
                           <td class="action">
-                          <button class="btn btn-danger"><a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()" class="delete"><i class="fa fa-trash text-white"></i>
-                          </a></button>
+                          <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()" class="delete">
+                          <button class="btn btn-danger"><i class="fa fa-trash text-white"></i>
+                          </button>
+                          </a>
                           <form action="{{ route('section.destroy', $s->id) }}" method="post">
                             @method('DELETE')
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">

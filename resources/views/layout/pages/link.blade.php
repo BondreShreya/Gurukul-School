@@ -7,6 +7,8 @@
   <link href="{{ asset('assets/css/material-dashboard.css?v=2.1.2') }}" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="{{ asset('assets/demo/demo.css') }}" rel="stylesheet" />
-  <link href=" https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet" />
+  <!-- <link href=" https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet" /> -->
  
+  <!-- <link href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css" rel="stylesheet" /> -->
  
+  

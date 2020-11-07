@@ -35,14 +35,15 @@ class NewAllotedController extends Controller
     {
         if($request->ajax())
         {
-           $class = Classes::where('id',$request->classs)->first();
+           $class = Standard::where('id',$request->classs)->first();
            $section = Section::where('id',$request->section)->first();
            $acadamic_year = AcadamicYear::where('id',$request->academicYear)->first();
            $admission = StudentProfile::where('class_name',$class->id)->where('acadamic_year',$acadamic_year->id)->where('section',$section->id)->where('status',0)->get();  
-         
+        //    dd($class);
            // declare an empty array for output
             $output = '';
-            if (count($admission)>0) 
+            if (count($admission)>0)
+           
               {
                  // concatenate output to the array
                  // loop through the result array
@@ -52,6 +53,7 @@ class NewAllotedController extends Controller
                      $std = Standard::where('id', $row->class_name)->first();
                      $sec = Section::where('id', $row->section)->first();
                      $acadamic= AcadamicYear::where('id', $row->acadamic_year,$row->previous_acadamic_year)->first();
+                    
                      $output .= '<tr>'.
                      '<td>'.'<input type="checkbox" value="'.$row->id.'" name="admission_id" class="checkvalue"></td>'.
                      '<td>'.$std->standard.'</td>'.
@@ -143,7 +145,7 @@ class NewAllotedController extends Controller
         foreach($allotstudent as $key=> $a)
         {
             $admission = StudentProfile::where('id',$a->admission_id)->first();
-            $class = Classes::where('id',$admission->class_name)->first();
+            $class = Standard::where('id',$admission->class_name)->first();
             $section =Section::where('id',$admission->section)->first();
             $acadamic_year = AcadamicYear::where('id',$admission->acadamic_year)->first();
             $school = SchoolProfile::where('id', $admission->school_name)->first();
@@ -216,7 +218,7 @@ class NewAllotedController extends Controller
     {
         if($request->ajax())
         {
-        //    $admission_id = StudentProfile::where('id',$request->admission)->first();
+        // $admission_id = StudentProfile::where('id',$request->admission)->first();
            $allotment_id = Alloted::where('id',$request->allotment_id)->first();
           
            $allotstudent = AllotedStudent::where('allotment_id',$allotment_id->id)->get();  

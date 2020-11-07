@@ -1,5 +1,8 @@
 @extends('layout.mainlayout')
 @section('pagetitle','ALL LIST')
+@section('layout.pages.link')
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+@endsection
 @section('content')
 <div class="content">
   <div class="container-fluid">
@@ -22,8 +25,8 @@
             <h4 class="card-title">TEACHERS</h4>
           </div> 
           <div class="card-body">
-            <div class="table-responsive">
-              <table class="table">
+            <!-- <div class="table-responsive"> -->
+              <table class="table" id="myTable">
                 <thead class=" text-primary">
                   <th>ID</th>
                   <th>NAME</th>
@@ -58,11 +61,20 @@
                   @endforeach
                   </tbody>
               </table>
-            </div>
+            <!-- </div> -->
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js
+        "></script>
+<!-- <script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script> -->
+<script>
+$(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+</script>
 @endsection

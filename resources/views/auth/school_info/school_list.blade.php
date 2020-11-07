@@ -22,7 +22,7 @@
                             <h4 class="card-title">SCHOOL PROFILE</h4>
                         </div>  
                         <div class="card-body table-responsive">
-                            <table class="table table-hover">
+                            <table class="table table-hover" id="users-table">
                                 <thead class="text-primary">
                                 <th>ID</th>
                                 <th>SCHOOL NAME</th>
@@ -63,4 +63,22 @@
         </div>
     </div>
 </div>
+<script>
+$(function() {
+    $('#users-table').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: '{{route('school.index')}}',
+        columns: [
+            { data: 'id', name: 'id' },
+            { data: 'school_name', name: 'name' },
+            { data: 'email', name: 'email' },
+            { data: 'school_type', name: 'school_type' },
+            { data: 'contact', name: 'contact' },
+            { data: 'website', name: 'website' }
+           
+        ]
+    });
+});
+</script>
 @endsection

@@ -53,8 +53,15 @@ Route::put('/teacher_update/{id}', 'Admin\TeacherController@update')->name('new_
 Route::delete('/teacher_delete/{id}', 'Admin\TeacherController@destroy')->name('teacher_list.destroy');
 
 
-Route::resource('/standard', 'Admin\StandredController');
-Route::resource('/section','Admin\SectionController');
+Route::get('/standard', 'Admin\StandredController@index')->name('standard.index');
+Route::delete('/standard/{id}', 'Admin\StandredController@destroy')->name('standard.destroy');
+Route::post('standard/store', 'Admin\StandredController@store')->name('standard.store');
+Route::delete('/standard/{id}', 'Admin\StandredController@destroy')->name('standard.destroy');
+Route::get('/section','Admin\SectionController@index')->name('section.index');
+Route::delete('/section/{id}', 'Admin\SectionController@destroy')->name('section.destroy');
+Route::post('section/store', 'Admin\SectionController@store')->name('section.store');
+Route::delete('/section/{id}', 'Admin\SectionController@destroy')->name('section.destroy');
+
 
 Route::get('/class','Admin\ClassController@index')->name('class.index');
 Route::post('class/store', 'Admin\ClassController@store')->name('class.store');
@@ -65,6 +72,7 @@ Route::delete('/class_delete/{id}', 'Admin\ClassController@destroy')->name('clas
 Route::get('new-student-profile', 'Admin\SiblingsController@index');
 Route::post('siblings/insert', 'Admin\SiblingsController@insert')->name('siblings.insert');
 // siblings
+
 // fees
 Route::get('/fees_head', 'Admin\FeesHeadController@create')->name('fees_head.create');
 Route::post('/admin/fees_head/store', 'Admin\FeesHeadController@store')->name('admin.fees_head.store');
@@ -73,6 +81,8 @@ Route::delete('/fees_head/{id}', 'Admin\FeesHeadController@destroy')->name('fees
 
 
 Route::get('/addfees', 'Admin\FeesController@create')->name('addfees.create');
+Route::post('/admin/addfees/store', 'Admin\FeesController@store')->name('admin.addfees.store');
+Route::delete('/addfees/{id}', 'Admin\FeesController@destroy')->name('addfees.destroy');
 Route::get('/day_wise_paid', 'Admin\DayWisePaidController@create')->name('day_wise_paid.create');
 Route::get('/fees_summary', 'Admin\FeessummaryController@create')->name('fees_summary.create');
 
@@ -93,7 +103,7 @@ Route::get('/new-allote-search', 'Admin\NewAllotedController@search')->name('new
 Route::post('/admin/alloted_list/store', 'Admin\NewAllotedController@store')->name('admin.alloted_list.store');
 Route::get('/edit-allot/{id}', 'Admin\NewAllotedController@edit')->name('edit-allot.edit');
 Route::get('/view-allot/{id}','Admin\NewAllotedController@show')->name('view-allot.show');
-Route::post('/view-allot', 'Admin\NewAllotedController@update')->name('view-allot.update');
+Route::post('/update-allot', 'Admin\NewAllotedController@update')->name('allot.update');
 Route::delete('/allot/{id}', 'Admin\NewAllotedController@destroy')->name('allot.destroy');
 Route::get('/print-list/{id}','Admin\NewAllotedController@print');
 
@@ -105,6 +115,7 @@ Route::post('/admin/new-attendance/store', 'Admin\NewAttendanceController@store'
 Route::get('/edit-new-attendance/{id}', 'Admin\NewAttendanceController@edit')->name('new-attendance.edit');
 Route::put('/new-attendance-update/{id}', 'Admin\NewAttendanceController@update')->name('new-attendance.update');
 Route::delete('/new-attendance-delete/{id}', 'Admin\NewAttendanceController@destroy')->name('new-attendance.destroy');
+
 
 
 

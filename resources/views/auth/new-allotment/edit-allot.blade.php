@@ -100,7 +100,7 @@ $(document).on("click","#submitTable",function(){
 
 // alert(allotment_id);
 $.ajax({
-url: "{{ url('view-allot') }}",
+url: "{{ route('allot.update') }}",
 method:"POST",
 data:{
   admission:admission,

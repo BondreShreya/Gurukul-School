@@ -90,6 +90,7 @@ class StandredController extends Controller
     public function destroy($id)
     {
         $std = Standard::findorfail($id);
+        dd($std);
         $std->delete();
         return redirect('/standard')->with('success', 'Standard Deleted Successfully!');
     }

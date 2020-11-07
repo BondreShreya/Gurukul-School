@@ -31,7 +31,7 @@
                         <select name="fees_head" id="fees_head" class="form-control">
                           <option value="fees">-SEELECT FEES HEAD-</option>
                           <option value="admission">ADMISSION</option>
-                          <option value="contribution">COVID-19 CONTRIBUTION</option>
+                          <option value="covid-19 contribution">COVID-19 CONTRIBUTION</option>
                         </select>
                     </div>
                   </div>
@@ -44,7 +44,7 @@
                   </div>
                 </div>
               </div>
-              <button type="submit" class="btn-block btn btn-success">CREATE</button>
+              <button type="submit" class="btn-block btn btn-primary">CREATE</button>
             </form>
           </div>
         </div>

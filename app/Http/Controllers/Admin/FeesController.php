@@ -1,9 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-use App\User;
-use App\Role;
-use DB;
 use App\model\Fees;
 use App\model\Fees_Head;
 use App\model\SchoolProfile;
@@ -26,7 +23,6 @@ class FeesController extends Controller
     public function index()
     {
        
-        
     }
 
     /**
@@ -36,11 +32,12 @@ class FeesController extends Controller
      */
     public function create()
     {
+        $users = fees::all();
         $fees = Fees_Head::all();
         $std = Standard::all(); 
         $academicYear = AcadamicYear::all(); 
         $schooldetail = SchoolProfile::all(); 
-        return view('auth.fees.addfees',compact('academicYear','schooldetail','std','fees'));
+        return view('auth.fees.addfees',compact('users','academicYear','schooldetail','std','fees'));
     }
 
     /**
@@ -51,7 +48,21 @@ class FeesController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $request->validate([
+            'fees_head' => 'required',
+            
+            
+        ]);
+
+        $users = new Fees();
+        $users->fees_head=$request->fees_head;
+        $users->acadamic_year=$request->acadamic_year;
+        $users->class_name=$request->class_name;
+        $users->school_name=$request->school_name;
+        $users->amount=$request->amount;
+        $users->description=$request->description;
+        $users->save();
+        return redirect('addfees')->with('success','Successfull Register');
     }
 
     /**
@@ -96,8 +107,10 @@ class FeesController extends Controller
      */
     public function destroy($id)
     {
-      
-       
+      $users = Fees::findorfail($id);
+      $users->delete();
+      return redirect('addfees')->with('success','Fees Deleted Successfully');
+     
     }
 }
 

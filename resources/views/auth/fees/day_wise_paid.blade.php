@@ -24,30 +24,29 @@
           <div class="card-body">
             <form action="" method="POST" enctype="multipart/form-data" class="">
               <div class="row">
-             
-                  <div class="col-md-6">
+                <div class="col-md-6">
+                  <label class="bmd-label-floating">DATE</label>
                     <div class="form-group">
-                    <label class="bmd-label-floating">DATE</label>
-                      <input type="date" class="form-control" name="date">
+                    <input type="date" class="form-control" name="date">
                     </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                    <label class="bmd-label-floating">CLASS NAME</label>
-                    <select  id="class" class="form-control" name="class_name">
-                            <option value="">-SEELECT CLASS-</option>
-                            @foreach($std as $class)
-                            <option value="{{ $class->id }}">{{ $class->standard }}</option>
-                            @endforeach
-                        </select>  
-                        @error('class_name')
-                                <span class="text-danger" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                        @enderror
-                    </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                  <label class="bmd-label-floating">CLASS NAME</label>
+                  <select  id="class" class="form-control" name="class_name">
+                          <option value="">-SEELECT CLASS-</option>
+                          @foreach($std as $class)
+                          <option value="{{ $class->id }}">{{ $class->standard }}</option>
+                          @endforeach
+                      </select>  
+                      @error('class_name')
+                              <span class="text-danger" role="alert">
+                                  <strong>{{ $message }}</strong>
+                              </span>
+                      @enderror
                   </div>
                 </div>
+              </div>
             </form>
           </div>
         </div>
@@ -63,24 +62,12 @@
             <div class="table-responsive">
               <table class="table">
                 <thead class=" text-primary">
-                  <th>
-                    ID
-                  </th>
-                  <th>
-                    STUDENT NAME
-                  </th>
-                  <th>
-                    CLASS
-                  </th>
-                  <th>
-                    PAID DATE
-                  </th>
-                  <th>
-                    PAID AMOUNT
-                  </th>
-                  <th>
-                    TOTAL BLANCE
-                  </th>
+                  <th>ID</th>
+                  <th>STUDENT NAME</th>
+                  <th>CLASS</th>
+                  <th>PAID DATE</th>
+                  <th>PAID AMOUNT</th>
+                  <th>TOTAL BLANCE</th>
                 </thead>
               </table>
             </div>
@@ -88,6 +75,6 @@
         </div>
       </div>
     </div>
-</div>
+  </div>
 </div>
 @endsection

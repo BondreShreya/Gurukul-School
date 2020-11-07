@@ -68,8 +68,8 @@
               FEES
             </a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="{{ route('addfees.create') }}">ADD FEES</a>
               <a class="dropdown-item" href="{{ route('fees_head.create') }}">FEES HEAD</a>
+              <a class="dropdown-item" href="{{ route('addfees.create') }}">ADD FEES</a>
               <a class="dropdown-item" href="{{url('/pay_fees')}}">PAY FEES</a>
               <a class="dropdown-item" href="{{url('/paid_fees')}}">PAID FEES</a>
               <a class="dropdown-item" href="{{ route ('day_wise_paid.create') }}">DAY WISE PAID FEES</a>
@@ -139,6 +139,5 @@
           </li>
         </ul>
       </div>
-     
     </div>
     

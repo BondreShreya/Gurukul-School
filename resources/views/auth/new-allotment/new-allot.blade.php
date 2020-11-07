@@ -134,7 +134,7 @@
 		var academicYear = $("#academicYear").val();
     var section = $("#section").val();
 
-    // alert(section);
+    // alert(academicYear);
 		$.ajax({
 					type : "GET",
 					url: "{{route('new-allote-search')}}",

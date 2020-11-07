@@ -31,7 +31,7 @@
                   <th>ACADAMIC YEAR</th>
                   <th>MONTHS</th>
                   <th>DAYS</th>
-                  <th>ACTION</th>
+                  <th>ACTION</th>s
                 </thead>
                  <tbody>
                  @foreach($user as $key =>$u)

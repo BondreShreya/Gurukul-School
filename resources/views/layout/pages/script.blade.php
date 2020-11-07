@@ -1,3 +1,4 @@
+
 <!--   Core JS Files   -->
 <script src="{{ asset('assets/js/core/jquery.min.js')}}"></script>
   <script src="{{ asset('assets/js/core/popper.min.js')}}"></script>
@@ -16,7 +17,7 @@
   <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
   <script src="{{ asset('assets/js/plugins/bootstrap-datetimepicker.min.js')}}"></script>
   <!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
-  <!-- <script src="{{ asset('assets/js/plugins/jquery.dataTables.min.js')}}"></script> -->
+  <script src="{{ asset('assets/js/plugins/jquery.dataTables.min.js')}}"></script>
   <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
   <script src="{{ asset('assets/js/plugins/bootstrap-tagsinput.js')}}"></script>
   <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
@@ -44,59 +45,7 @@
   <!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> -->
   
  
-  <!-- sidebar scroll -->
-  <!-- <script>
-
-		new Scrollbot("#wrapper");
-
-		var custom = new Scrollbot(".custom-scroll");
-
-		custom2 = new Scrollbot(".custom-scroll-1",10).setStyle({
-			"background":"#202020",
-			"z-index":"2"
-		},{
-			"background":"rgba(0,0,0,0)"
-		});
-		var psuedo = document.createElement("div");
-		psuedo.style.cssText = "height:100%;width:2px;left:4px;background:#808080;position:absolute;z-index:1";
-		custom2.scrollBarHolder.appendChild(psuedo);
-		
-
-		var custom3 = new Scrollbot(".custom-scroll-2");
-		custom3.setStyle({height:2});
-		var onscrollfollower = document.createElement("div");
-		onscrollfollower.style.width = "100%";
-		onscrollfollower.style.height = "100%";
-		onscrollfollower.style.backgroundColor = "#222222";
-		onscrollfollower.style.position = "absolute";
-		onscrollfollower.style.bottom = "100%";
-		onscrollfollower.style.right = 0;
-		custom3.scrollBarHolder.appendChild(onscrollfollower);
-		custom3.onScroll(function(){onscrollfollower.style.bottom = 100 - parseFloat(this.scrollBar.style.top) + "%";})
-
-		var custom4 = new Scrollbot(".custom-scroll-3",10).setStyle({
-			"background":"#202020",
-			"z-index":"2",
-			"border-radius":"50%",
-			"height":"10px"
-		},{
-			"background":"rgba(0,0,0,0)"
-		});
-		var psuedo = document.createElement("div");
-		psuedo.style.cssText = "height:100%;width:2px;left:4px;background:#808080;position:absolute;z-index:1";
-		custom4.scrollBarHolder.appendChild(psuedo);
-
-
-
-		var custom6 = new Scrollbot(".custom-scroll-4");
-
-		document.querySelector("#destroy").onclick = function(){
-			custom6.destroy();
-		}
-
-			
-	</script> -->
-  <!-- sidebsr scroll -->
+  
   <script>
     $(document).ready(function() {
       $().ready(function() {

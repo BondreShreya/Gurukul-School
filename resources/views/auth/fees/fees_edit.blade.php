@@ -31,7 +31,7 @@
                         <label class="bmd-label-floating">FEES HEAD</label>
                         <select name="fees_head" id="fees_head" class="form-control" value="{{ $users->fees_head}}">
                             <option value="admission" {{($users->fees_head == 'admission') ? 'selected = selected' : ''}}>ADMISSION</option>
-                            <option value="contribution" {{($users->fees_head == 'contribution') ? 'selected = selected' : ''}}>COVID-19 CONTRIBUTION</option>
+                            <option value="covid-19 contribution" {{($users->fees_head == 'covid-19 contribution') ? 'selected = selected' : ''}}>COVID-19 CONTRIBUTION</option>
                         </select>
                         </div>
                     </div>
