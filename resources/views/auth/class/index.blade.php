@@ -93,14 +93,20 @@
                           <td>{{$class->standard}}  {{ $class->section }}</td>
                           <td class="action">
                           <a href="{{ route('edit_class.edit', $class->id) }}">
-                          <button type="button" class="btn btn-info  edit"><i class="fa fa-pencil"></i></button></a>
+                          <button type="button" rel="tooltip" title="" class="btn btn-primary btn-link btn-sm" data-original-title="Edit">
+                                <i class="material-icons">edit</i>
+                          </button>
+                          </a>
                           <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()" class="delete">
-                          <button type="button" class="btn btn-danger  destroy"><i class="fa fa-trash"></i></button></a>
-                          </a>                         
-                           <form action="{{ route('class.destroy', $class->id) }}" method="post">
+                            <button type="button" rel="tooltip" title="" class="btn btn-danger btn-link btn-sm" data-original-title="Remove" aria-describedby="tooltip680332">
+                              <i class="material-icons">close</i>
+                              <div class="ripple-container"></div>
+                            </button>
+                          </a>                       
+                          <form action="{{ route('class.destroy', $class->id) }}" method="post">
                             @method('DELETE')
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        </form>
+                          </form>
                           </td>
                         </tr>
                     @endforeach      

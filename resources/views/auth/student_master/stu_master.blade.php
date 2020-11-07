@@ -54,9 +54,9 @@
                         <tr>
                           <td>{{ ++$key }}</td>
                           <td>{{ $year->first_name}}  {{ $year->middle_name}}  {{ $year->last_name}}</td>
-                          <td>{{ $name->school_name}}</td>
-                          <td>{{ $class->standard}}</td>
-                          <td>{{ $sec->section }}</td>
+                          <td>@if(!empty($name)){{ $name->school_name}}@endif</td>
+                          <td>@if(!empty($name)){{ $class->standard}}@endif</td>
+                          <td>@if(!empty($name)){{ $sec->section }}@endif</td>
                           <td>{{ $acadamic->previous_acadamic_year}}-{{$acadamic->acadamic_year}}</td>
                           <td>
                             <button class="btn-sm btn btn-info">

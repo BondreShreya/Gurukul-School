@@ -80,15 +80,18 @@ Route::delete('/fees_head/{id}', 'Admin\FeesHeadController@destroy')->name('fees
 // fees
 
 
-Route::get('/addfees', 'Admin\FeesController@create')->name('addfees.create');
-Route::post('/admin/addfees/store', 'Admin\FeesController@store')->name('admin.addfees.store');
-Route::delete('/addfees/{id}', 'Admin\FeesController@destroy')->name('addfees.destroy');
+Route::get('/addfees', 'Admin\AddFeesController@create')->name('addfees.create');
+Route::post('/admin/addfees/store', 'Admin\AddFeesController@store')->name('admin.addfees.store');
+Route::get('/addedit/{id}', 'Admin\AddFeesController@edit')->name('addedit.edit');
+Route::put('/update/{id}', 'Admin\AddFeesController@update')->name('addfees.update');
+Route::delete('/addfees/{id}', 'Admin\AddFeesController@destroy')->name('addfees.destroy');
+Route::get('/pay_fees', 'Admin\PayController@index')->name('pay_fees.index');
 Route::get('/day_wise_paid', 'Admin\DayWisePaidController@create')->name('day_wise_paid.create');
 Route::get('/fees_summary', 'Admin\FeessummaryController@create')->name('fees_summary.create');
 
 // Design Controller
 Route::get('/paid_fees', 'Admin\FeesDesignController@paid_fees');
-Route::get('/pay_fees', 'Admin\FeesDesignController@pay_fees');
+
 Route::get('/bonafide-certificate/{id}','Admin\FeesDesignController@bonafide')->name('bonafide-certificate');
 Route::get('/character-certificate/{id}','Admin\FeesDesignController@character')->name('character-certificate');
 Route::get('/leaving-certificate/{id}','Admin\FeesDesignController@leaving')->name('leaving-certificate');

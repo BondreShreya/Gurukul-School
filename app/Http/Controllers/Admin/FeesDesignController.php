@@ -11,6 +11,8 @@ use\App\model\AcadamicYear;
 use\App\model\AllotedStudent;
 use App\model\StudentProfile;
 use\App\model\Teacher;
+use\App\model\Fees;
+use\App\model\Fees_Head;
 
 class FeesDesignController extends Controller
 {
@@ -18,7 +20,8 @@ class FeesDesignController extends Controller
         return view('auth.fees.paid_fees');
     }
     public function pay_fees(){
-        return view('auth.fees.pay_fees');
+        
+       
     }
     public function bonafide($id)
     {

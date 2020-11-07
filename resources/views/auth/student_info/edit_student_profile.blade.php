@@ -160,7 +160,7 @@
                       <div class="col-md-4">
                         <label class="bmd-label-floating">ADMISSION DATE</label>
                           <div class="form-group">
-                          <input type="date" class="form-control" value="{{ $student->admission_date}}" placeholder="admision date" name="admission_date" value="{{ $student->admission_date}}">
+                          <input type="date" class="form-control"  placeholder="admision date" name="admission_date" value="{{ $student->admission_date}}">
                              @error('admission_date')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>

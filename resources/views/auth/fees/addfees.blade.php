@@ -115,7 +115,7 @@
             <div class="table-responsive">
               <table class="table">
                 <thead class=" text-primary">
-                  <th>SR NO.</th>
+                  <!-- <th>SR NO.</th> -->
                   <th>FEES HEAD</th>
                   <th>CLASS NAME</th>                    
                   <th>ACADAMIC YEAR</th>
@@ -139,19 +139,26 @@
                     $year=DB::table('acadamic_year')->where('id',$user->acadamic_year)->first();
                     ?> 
                     <tr>
-                      <td>{{ ++$key }}</td>
+                      <!-- <td>{{ ++$key }}</td> -->
                       <td>{{$fees->fees_head }}</td>
-                      <td>{{$class->standard}}</td>
+                      <td class="text-center">{{$class->standard}}</td>
                       <td>{{$year->previous_acadamic_year}}-{{$year->acadamic_year}}</td>
-                      <td>{{$name->school_name }}</td>
-                      <td>{{$user->amount }}</td>
+                      <td>@if(!empty($name)){{ $name->school_name}}@endif</td>
+                      <td class="text-center">{{$user->amount }}</td>
                       <td>{{$user->description }}</td>
                       <td class="action">
+                      <a href="{{ route('addedit.edit', $user->id)}}">
+                          <button type="button" rel="tooltip" title="" class="btn btn-primary btn-link btn-sm" data-original-title="Edit">
+                              <i class="material-icons">edit</i>
+                          </button>
+                      </a>
                         <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()">
-                        <button type="button" class="btn btn-danger delete"><i class="fa fa-trash text-white"></i>
-                        </button>
+                          <button type="button" rel="tooltip" title="" class="btn btn-danger btn-link btn-sm" data-original-title="Remove" aria-describedby="tooltip680332">
+                            <i class="material-icons">close</i>
+                            <div class="ripple-container"></div>
+                          </button>
                         </a>
-                          <form action="{{ route('addfees.destroy', $user->id)}}" method="post">
+                        <form action="{{ route('addfees.destroy', $user->id)}}" method="post">
                             @method('DELETE')
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         </form>

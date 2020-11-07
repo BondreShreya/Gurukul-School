@@ -18,7 +18,7 @@ class SchoolProfileController extends Controller
      */
     public function index()
     {
-        $users = SchoolProfile::orderBy('id','ASC')->get();
+        $users = SchoolProfile::orderBy('id','ASC')->paginate(1);
         return view('auth.school_info.school_list',compact('users'));
     }
 

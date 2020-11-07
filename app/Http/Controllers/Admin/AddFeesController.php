@@ -1,19 +1,18 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\model\Fees;
 use App\model\Fees_Head;
 use App\model\SchoolProfile;
 use App\model\AcadamicYear;
 use App\model\Standard;
 use App\model\Section;
-use Illuminate\Support\Facades\Hash;
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 
 
-
-class FeesController extends Controller
+class AddFeesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,7 +21,7 @@ class FeesController extends Controller
      */
     public function index()
     {
-       
+        //
     }
 
     /**
@@ -84,7 +83,12 @@ class FeesController extends Controller
      */
     public function edit($id)
     {
-        
+        $users = Fees::findorfail($id);
+        $fees = Fees_Head::all();
+        $std = Standard::all(); 
+        $academicYear = AcadamicYear::all(); 
+        $schooldetail = SchoolProfile::all();
+        return view('auth.fees.addedit',compact('users','academicYear','schooldetail','std','fees'));
     }
 
     /**
@@ -96,7 +100,15 @@ class FeesController extends Controller
      */
     public function update(Request $request, $id)
     {
-       
+        $users =Fees::findorfail($id);
+        $users->fees_head=$request->fees_head;
+        $users->acadamic_year=$request->acadamic_year;
+        $users->class_name=$request->class_name;
+        $users->school_name=$request->school_name;
+        $users->amount=$request->amount;
+        $users->description=$request->description;
+        $users->update();
+        return redirect('addfees')->with('success','Successfull Register');
     }
 
     /**
@@ -110,7 +122,5 @@ class FeesController extends Controller
       $users = Fees::findorfail($id);
       $users->delete();
       return redirect('addfees')->with('success','Fees Deleted Successfully');
-     
     }
 }
-

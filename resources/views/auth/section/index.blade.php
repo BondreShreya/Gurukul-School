@@ -67,8 +67,10 @@
                           </td>
                           <td class="action">
                           <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()" class="delete">
-                          <button class="btn btn-danger"><i class="fa fa-trash text-white"></i>
-                          </button>
+                            <button type="button" rel="tooltip" title="" class="btn btn-danger btn-link btn-sm" data-original-title="Remove" aria-describedby="tooltip680332">
+                              <i class="material-icons">close</i>
+                              <div class="ripple-container"></div>
+                            </button>
                           </a>
                           <form action="{{ route('section.destroy', $s->id) }}" method="post">
                             @method('DELETE')

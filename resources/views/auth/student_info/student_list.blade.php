@@ -54,16 +54,21 @@
                    
                    
                       <td class="action">
-                          <button class="btn btn-info"><a href="{{ route('new_student_profile.edit', $user->id) }}"><i class="fa fa-pencil text-white"></i>
-                          </a></button><br>
-                          <button class="btn btn-danger"><a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()" class="delete"><i class="fa fa-trash text-white"></i>
-                         
-                          <form action="{{ route('student_list.destroy', $user->id)  }}" method="post">
+                          <a href="{{ route('new_student_profile.edit', $user->id) }}">
+                            <button type="button" rel="tooltip" title="" class="btn btn-primary btn-link btn-sm" data-original-title="Edit">
+                                <i class="material-icons">edit</i>
+                            </button>
+                          </a>
+                          <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()">
+                              <button type="button" rel="tooltip" title="" class="btn btn-danger btn-link btn-sm" data-original-title="Remove" aria-describedby="tooltip680332">
+                                  <i class="material-icons">close</i>
+                                  <div class="ripple-container"></div>
+                              </button>
+                          </a>
+                         <form action="{{ route('student_list.destroy', $user->id)  }}" method="post">
                               @method('DELETE')
                               <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                          </form>
-                          </a>
-                          </button>
+                        </form>
                       </td>
                     </tr>
                   @endforeach

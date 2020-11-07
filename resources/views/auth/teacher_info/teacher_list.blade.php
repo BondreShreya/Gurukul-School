@@ -38,26 +38,33 @@
                 </thead>
                  <tbody>
                  @foreach($users as $key => $user)
-                    <tr>
+                  <tr>
                     <td>{{ ++$key }}</td>
                     <td>{{ $user->name }}</td>
                     <td class="text-center">{{ $user->email }}</td>
                     <td class="text-center">{{ $user->designation }}</td>
                     <td class="text-center">{{ $user->qualification }}</td>
                     <td class="text-center">
-                      <img src="{{  URL::asset('teacherImg/' . $user->file) }}" style="width:50%">
+                      <img src="{{  URL::asset('teacherImg/' . $user->file) }}" style="width:30%">
                     </td>
-                      <td class="action">
-                          <button class="btn btn-info"><a href="{{ route('edit_teacher.edit',$user->id) }}"><i class="fa fa-pencil text-white"></i>
-                          </a></button>
-                          <button class="btn btn-danger"><a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()" class="delete"><i class="fa fa-trash text-white"></i>
-                          </a>
-                          <form action="{{ route('teacher_list.destroy',$user->id) }}" method="post">
-                              @method('DELETE')
-                              <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                          </form></button>
-                      </td>
-                    </tr>
+                    <td class="action">
+                      <a href="{{ route('edit_teacher.edit',$user->id) }}">
+                        <button type="button" rel="tooltip" title="" class="btn btn-primary btn-link btn-sm" data-original-title="Edit">
+                          <i class="material-icons">edit</i>
+                        </button>
+                      </a>
+                      <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()">
+                          <button type="button" rel="tooltip" title="" class="btn btn-danger btn-link btn-sm" data-original-title="Remove" aria-describedby="tooltip680332">
+                              <i class="material-icons">close</i>
+                              <div class="ripple-container"></div>
+                          </button>
+                      </a>
+                      <form action="{{ route('teacher_list.destroy',$user->id) }}" method="post">
+                          @method('DELETE')
+                          <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                      </form>
+                    </td>
+                  </tr>
                   @endforeach
                   </tbody>
               </table>
